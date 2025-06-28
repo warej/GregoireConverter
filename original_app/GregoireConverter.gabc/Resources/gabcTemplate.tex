@@ -1,0 +1,22 @@
+﻿% !TEX program = LuaLaTeX+se
+\documentclass[<@!DOCUMENT_FONT_SIZE!@>pt,a4paper,<@!ORIENTATION!@>]{article}
+
+% Set margins
+\usepackage[a4paper,%
+            left=0.5cm,%
+            right=0.5cm,%
+            top=2cm,%
+            bottom=2cm]{geometry}
+\usepackage{fontspec}
+\usepackage[autocompile]{gregoriotex}
+
+
+\begin{document}
+
+\begin{center}
+\begin{minipage}{<@!STAFF_WIDTH!@>mm}
+\gregorioscore{<@!BASE_FILE_NAME!@>}
+\end{minipage}
+\end{center}
+
+\end{document}
