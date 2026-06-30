@@ -18,3 +18,6 @@
 *.userprefs
 *.BAK
 *.dll
+
+# Local development notes — not for version control
+LOCAL.md
