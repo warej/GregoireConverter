@@ -1,0 +1,54 @@
+<main class="converter">
+  <h1>{{ 'convert.title' | translate }}</h1>
+
+  <!-- File upload -->
+  <section class="upload-section">
+    <label class="upload-label" for="grg-file">
+      {{ 'convert.uploadLabel' | translate }}
+      <span class="hint">{{ 'convert.uploadHint' | translate }}</span>
+    </label>
+    <div class="upload-controls">
+      <input id="grg-file" type="file" accept=".grg,.GRG" (change)="onFileSelected($event)" />
+      <button class="btn btn-primary" [disabled]="!selectedFile" (click)="convert()">
+        {{ 'convert.convertButton' | translate }}
+      </button>
+    </div>
+  </section>
+
+  <!-- Error -->
+  <p class="error" *ngIf="errorKey">{{ errorKey | translate }}</p>
+
+  <!-- Output -->
+  <section class="output-section" *ngIf="gabcOutput !== null">
+    <h2>{{ 'convert.outputLabel' | translate }}</h2>
+    <textarea class="gabc-output" readonly [value]="gabcOutput" rows="16"></textarea>
+
+    <div class="output-actions">
+      <button class="btn btn-primary" (click)="download()">
+        {{ 'convert.downloadButton' | translate }}
+      </button>
+      <a class="btn btn-secondary" [href]="gabcViewerUrl" target="_blank" rel="noopener noreferrer">
+        {{ 'convert.viewerLink' | translate }}
+      </a>
+    </div>
+
+    <!-- Warnings panel -->
+    <aside class="warnings-panel" *ngIf="warnings.length > 0">
+      <h3>{{ 'convert.warningsTitle' | translate }}</h3>
+      <p>{{ 'convert.warningsDescription' | translate }}</p>
+      <ul>
+        <li *ngFor="let w of warnings">
+          ID {{ w.id }} &mdash; position ({{ w.positionX }}, {{ w.positionY }})
+          <span *ngIf="w.caption"> &mdash; &ldquo;{{ w.caption }}&rdquo;</span>
+        </li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- Feedback prompt -->
+  <app-feedback-prompt
+    *ngIf="showFeedback"
+    [gabcContent]="gabcOutput ?? ''"
+    (dismissed)="dismissFeedback()"
+  />
+</main>

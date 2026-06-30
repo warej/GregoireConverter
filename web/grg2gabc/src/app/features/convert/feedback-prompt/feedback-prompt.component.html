@@ -1,0 +1,21 @@
+<div class="feedback-backdrop" (click)="dismiss()"></div>
+<aside class="feedback-panel">
+  <h3>{{ 'feedback.title' | translate }}</h3>
+  <p>{{ 'feedback.description' | translate }}</p>
+
+  <button class="btn btn-primary" (click)="openMailto()">
+    {{ 'feedback.sendEmail' | translate }}
+  </button>
+
+  <div class="fallback" *ngIf="showFallback">
+    <p>{{ 'feedback.noMailClient' | translate }}</p>
+    <pre class="email-template">{{ emailTemplate }}</pre>
+    <button class="btn btn-secondary" (click)="copyTemplate()">
+      {{ (copied ? 'feedback.copied' : 'feedback.copyTemplate') | translate }}
+    </button>
+  </div>
+
+  <button class="dismiss-btn" (click)="dismiss()">
+    {{ 'feedback.dismiss' | translate }}
+  </button>
+</aside>
