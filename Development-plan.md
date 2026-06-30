@@ -22,7 +22,7 @@ MIT
 - Display output GABC text with inline `(?)` placeholder markers where neume IDs have no mapping.
 - Show a sidebar warnings panel listing every unmapped neume ID and its position in the score.
 - Offer download of the `.gabc` output.
-- Link to external GABC viewer (URL TBD).
+- Link to external GABC viewer (configurable via `environment.ts`, default: https://www.sourceandsummit.com/editor/alpha/).
 - After 1-in-5 conversions: show a prompt asking if the output was correct, with a mailto link pre-filling subject and a suggested email template. If no mailto application is configured, show a fallback copy-paste panel with the email template.
 
 ## Phase 2 Scope (Future)
@@ -75,6 +75,7 @@ Port the C# GRG2 parser and GABC exporter to TypeScript as Angular services:
 - Check `GRG2` magic bytes and minimum file size (40 bytes); show error if invalid.
 - Unmapped neume IDs: insert inline `(?)` placeholder in GABC output and list in sidebar warnings panel. Conversion continues.
 - Contact email for error reports configurable via Angular environment file (`environment.ts`); initially `artur.warejko@a4w.pl`.
+- External GABC viewer URL configurable via `environment.ts`; initially `https://www.sourceandsummit.com/editor/alpha/`.
 
 ## Feedback Mechanism
 
@@ -99,6 +100,5 @@ Port the C# GRG2 parser and GABC exporter to TypeScript as Angular services:
 
 ## Open Items
 
-- [ ] Identify and link to the external GABC viewer.
-- [ ] Obtain sample `.grg` files to use as unit test fixtures.
+- [ ] Obtain sample `.grg` files to use as unit test fixtures (ask original author for permission, or create synthetic minimal files).
 - [ ] Update `LICENSE` file content to MIT.
