@@ -21,3 +21,8 @@
 
 # Local development notes — not for version control
 LOCAL.md
+
+# Angular / Node (covered per-project in web/grg2gabc/.gitignore, but belt-and-suspenders)
+web/grg2gabc/node_modules/
+web/grg2gabc/dist/
+web/grg2gabc/.angular/

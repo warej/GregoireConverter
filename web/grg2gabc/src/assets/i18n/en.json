@@ -1,0 +1,38 @@
+{
+  "app": {
+    "title": "GRG2GABC – Gregoire File Converter"
+  },
+  "convert": {
+    "title": "Convert a Gregoire file (.grg) to GABC format",
+    "uploadLabel": "Select a .grg file",
+    "uploadHint": "Maximum size: 10 MB",
+    "uploadButton": "Choose file",
+    "convertButton": "Convert",
+    "downloadButton": "Download .gabc file",
+    "viewerLink": "Open in GABC viewer",
+    "outputLabel": "Conversion result (GABC)",
+    "warningsTitle": "Warnings",
+    "warningsDescription": "The following neumes were not recognised and have been marked as (?) in the output:",
+    "errorInvalidFile": "Invalid file. Please make sure the selected file is a Gregoire (.grg) file.",
+    "errorFileTooLarge": "File is too large. Maximum size is 10 MB.",
+    "errorUnexpected": "An unexpected error occurred during conversion."
+  },
+  "feedback": {
+    "title": "Was the output correct?",
+    "description": "If the conversion result is incorrect or incomplete, please report the issue.",
+    "sendEmail": "Send report by email",
+    "emailSubject": "GRG2GABC conversion error",
+    "emailBody": "Hello,\n\nI found an issue with the conversion of a Gregoire file.\n\nDescription of the problem:\n[Describe what is incorrect here]\n\nI am attaching the .gabc file and the original .grg file.\n\nBest regards",
+    "noMailClient": "If you do not have an email client configured, copy the template below:",
+    "copyTemplate": "Copy template",
+    "copied": "Copied!",
+    "dismiss": "Dismiss"
+  },
+  "editor": {
+    "comingSoon": "GABC Editor – coming soon."
+  },
+  "lang": {
+    "pl": "Polski",
+    "en": "English"
+  }
+}

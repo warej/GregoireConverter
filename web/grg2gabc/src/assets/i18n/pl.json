@@ -1,0 +1,38 @@
+{
+  "app": {
+    "title": "GRG2GABC – Konwerter plików Gregoire"
+  },
+  "convert": {
+    "title": "Konwertuj plik Gregoire (.grg) do formatu GABC",
+    "uploadLabel": "Wybierz plik .grg",
+    "uploadHint": "Maksymalny rozmiar: 10 MB",
+    "uploadButton": "Wybierz plik",
+    "convertButton": "Konwertuj",
+    "downloadButton": "Pobierz plik .gabc",
+    "viewerLink": "Otwórz w przeglądarce GABC",
+    "outputLabel": "Wynik konwersji (GABC)",
+    "warningsTitle": "Ostrzeżenia",
+    "warningsDescription": "Następujące numy nie zostały rozpoznane i zostały oznaczone jako (?) w wyniku:",
+    "errorInvalidFile": "Nieprawidłowy plik. Upewnij się, że wybrany plik jest plikiem Gregoire (.grg).",
+    "errorFileTooLarge": "Plik jest za duży. Maksymalny rozmiar to 10 MB.",
+    "errorUnexpected": "Wystąpił nieoczekiwany błąd podczas konwersji."
+  },
+  "feedback": {
+    "title": "Czy wynik jest poprawny?",
+    "description": "Jeśli wynik konwersji jest niepoprawny lub niepełny, prosimy o zgłoszenie błędu.",
+    "sendEmail": "Wyślij raport e-mailem",
+    "emailSubject": "Błąd konwersji GRG2GABC",
+    "emailBody": "Dzień dobry,\n\nZnalazłem błąd w konwersji pliku Gregoire.\n\nOpis problemu:\n[Opisz tutaj, co jest niepoprawne]\n\nZałączam plik .gabc oraz oryginalny plik .grg.\n\nPozdrawiam",
+    "noMailClient": "Jeśli nie masz skonfigurowanego klienta poczty, skopiuj poniższy szablon:",
+    "copyTemplate": "Skopiuj szablon",
+    "copied": "Skopiowano!",
+    "dismiss": "Zamknij"
+  },
+  "editor": {
+    "comingSoon": "Edytor GABC – wkrótce dostępny."
+  },
+  "lang": {
+    "pl": "Polski",
+    "en": "English"
+  }
+}

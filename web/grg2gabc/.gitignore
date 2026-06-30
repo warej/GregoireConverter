@@ -1,0 +1,17 @@
+# Angular / Node
+node_modules/
+dist/
+.angular/
+out-tsc/
+
+# Environment files with secrets
+src/environments/environment.local.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
