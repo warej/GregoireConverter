@@ -87,8 +87,8 @@ export class Grg2NeumeForGabc extends Grg2Neume {
           last.after += '2';
         }
       }
-    } catch {
-      // No format for this rhythmic neume — skip silently
+    } catch (err) {
+      console.warn(`[grg2gabc] Could not apply rhythmic neume id=${rhythmic.id} to neume id=${this.id}:`, err);
     }
   }
 
