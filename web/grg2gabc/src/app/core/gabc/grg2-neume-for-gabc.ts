@@ -25,7 +25,7 @@ export class Grg2NeumeForGabc extends Grg2Neume {
     this.unknownValue5 = orig.unknownValue5;
 
     // Reformat trailing whitespace/hyphens in caption
-    const match = orig.caption.match(/([\-\ ]+)$/);
+    const match = orig.caption.match(/([- ]+)$/);
     if (match) {
       const stripped = orig.caption.slice(0, orig.caption.length - match[1].length);
       this.caption = match[1].includes(' ') ? stripped + ' ' : stripped;

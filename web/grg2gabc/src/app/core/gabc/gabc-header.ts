@@ -8,7 +8,7 @@ type AttributeKey =
   | 'user-notes' | 'annotation' | 'generated-by';
 
 export class GabcHeader {
-  private attributes: Array<[AttributeKey, string]> = [];
+  private attributes: [AttributeKey, string][] = [];
   name: string;
 
   constructor(name: string) {

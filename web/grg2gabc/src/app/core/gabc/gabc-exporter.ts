@@ -101,7 +101,7 @@ export class GabcExporter {
         }
 
         // Move trailing star to the following divisio
-        const starMatch = cur.caption.match(/([*\ ]+)$/);
+        const starMatch = cur.caption.match(/([* ]+)$/);
         if (starMatch && neumes[it + 1]?.isDivisio) {
           cur.caption = cur.caption.slice(0, cur.caption.length - starMatch[1].length);
           neumes[it + 1].caption = ' *' + neumes[it + 1].caption;
