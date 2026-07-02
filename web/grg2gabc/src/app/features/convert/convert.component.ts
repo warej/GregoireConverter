@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ConversionService } from '../../core/conversion.service';
 import { UnmappedNeume } from '../../core/gabc/grg2-neume-for-gabc';
@@ -12,7 +11,7 @@ const FEEDBACK_PROBABILITY = 0.2; // 1-in-5
 @Component({
   selector: 'app-convert',
   standalone: true,
-  imports: [CommonModule, TranslateModule, FeedbackPromptComponent],
+  imports: [TranslateModule, FeedbackPromptComponent],
   templateUrl: './convert.component.html',
   styleUrl: './convert.component.scss',
 })

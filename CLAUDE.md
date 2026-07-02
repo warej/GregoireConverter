@@ -2,7 +2,7 @@
 
 ## What this project is
 
-Angular 19 static web app converting Gregoire binary chant files
+Angular 21 static web app converting Gregoire binary chant files
 (.grg / GRG2 format) to GABC text notation. Hosted on GitHub Pages.
 Continuation of a master's thesis by Artur Warejko, Poznań University
 of Technology. Repo: github.com/warej/GregoireConverter.

@@ -1,12 +1,11 @@
 import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-feedback-prompt',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [TranslateModule],
   templateUrl: './feedback-prompt.component.html',
   styleUrl: './feedback-prompt.component.scss',
 })

@@ -7,13 +7,15 @@
     {{ 'feedback.sendEmail' | translate }}
   </button>
 
-  <div class="fallback" *ngIf="showFallback">
-    <p>{{ 'feedback.noMailClient' | translate }}</p>
-    <pre class="email-template">{{ emailTemplate }}</pre>
-    <button class="btn btn-secondary" (click)="copyTemplate()">
-      {{ (copied ? 'feedback.copied' : 'feedback.copyTemplate') | translate }}
-    </button>
-  </div>
+  @if (showFallback) {
+    <div class="fallback">
+      <p>{{ 'feedback.noMailClient' | translate }}</p>
+      <pre class="email-template">{{ emailTemplate }}</pre>
+      <button class="btn btn-secondary" (click)="copyTemplate()">
+        {{ (copied ? 'feedback.copied' : 'feedback.copyTemplate') | translate }}
+      </button>
+    </div>
+  }
 
   <button class="dismiss-btn" (click)="dismiss()">
     {{ 'feedback.dismiss' | translate }}

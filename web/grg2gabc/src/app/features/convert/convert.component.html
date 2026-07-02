@@ -16,39 +16,48 @@
   </section>
 
   <!-- Error -->
-  <p class="error" *ngIf="errorKey">{{ errorKey | translate }}</p>
+  @if (errorKey) {
+    <p class="error">{{ errorKey | translate }}</p>
+  }
 
   <!-- Output -->
-  <section class="output-section" *ngIf="gabcOutput !== null">
-    <h2>{{ 'convert.outputLabel' | translate }}</h2>
-    <textarea class="gabc-output" readonly [value]="gabcOutput" rows="16"></textarea>
-
-    <div class="output-actions">
-      <button class="btn btn-primary" (click)="download()">
-        {{ 'convert.downloadButton' | translate }}
-      </button>
-      <a class="btn btn-secondary" [href]="gabcViewerUrl" target="_blank" rel="noopener noreferrer">
-        {{ 'convert.viewerLink' | translate }}
-      </a>
-    </div>
-
-    <!-- Warnings panel -->
-    <aside class="warnings-panel" *ngIf="warnings.length > 0">
-      <h3>{{ 'convert.warningsTitle' | translate }}</h3>
-      <p>{{ 'convert.warningsDescription' | translate }}</p>
-      <ul>
-        <li *ngFor="let w of warnings">
-          ID {{ w.id }} &mdash; position ({{ w.positionX }}, {{ w.positionY }})
-          <span *ngIf="w.caption"> &mdash; &ldquo;{{ w.caption }}&rdquo;</span>
-        </li>
-      </ul>
-    </aside>
-  </section>
+  @if (gabcOutput !== null) {
+    <section class="output-section">
+      <h2>{{ 'convert.outputLabel' | translate }}</h2>
+      <textarea class="gabc-output" readonly [value]="gabcOutput" rows="16"></textarea>
+      <div class="output-actions">
+        <button class="btn btn-primary" (click)="download()">
+          {{ 'convert.downloadButton' | translate }}
+        </button>
+        <a class="btn btn-secondary" [href]="gabcViewerUrl" target="_blank" rel="noopener noreferrer">
+          {{ 'convert.viewerLink' | translate }}
+        </a>
+      </div>
+      <!-- Warnings panel -->
+      @if (warnings.length > 0) {
+        <aside class="warnings-panel">
+          <h3>{{ 'convert.warningsTitle' | translate }}</h3>
+          <p>{{ 'convert.warningsDescription' | translate }}</p>
+          <ul>
+            @for (w of warnings; track w) {
+              <li>
+                ID {{ w.id }} &mdash; position ({{ w.positionX }}, {{ w.positionY }})
+                @if (w.caption) {
+                  <span> &mdash; &ldquo;{{ w.caption }}&rdquo;</span>
+                }
+              </li>
+            }
+          </ul>
+        </aside>
+      }
+    </section>
+  }
 
   <!-- Feedback prompt -->
-  <app-feedback-prompt
-    *ngIf="showFeedback"
-    [gabcContent]="gabcOutput ?? ''"
-    (dismissed)="dismissFeedback()"
-  />
+  @if (showFeedback) {
+    <app-feedback-prompt
+      [gabcContent]="gabcOutput ?? ''"
+      (dismissed)="dismissFeedback()"
+      />
+  }
 </main>
