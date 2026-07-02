@@ -47,7 +47,11 @@ Development-plan.md             full design decisions record
 make install && make serve
 ```
 
-## Open items
+## Testing
 
-- [ ] Sample `.grg` fixture files for unit tests (ask original author for permission)
-- [ ] Enable GitHub Pages in repo settings (Actions source) — one-time manual step via GitHub UI
+Crafted `.grg` fixtures live under
+`web/grg2gabc/src/app/core/grg2/testing/fixtures/grg2-samples/`. They're served to Karma only
+(test-only asset glob in `angular.json`, output `grg2-fixtures/`) and never ship in the production
+bundle. `gabc-conversion-samples.spec.ts` parses + converts every fixture end to end; one file
+(`Document3-AaacB_cleDo_Aaa-1_BrokenByGRG1.GRG`) has deliberately corrupted magic bytes and is
+tested as a negative case instead.

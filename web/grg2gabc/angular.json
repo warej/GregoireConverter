@@ -79,7 +79,12 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/app/core/grg2/testing/fixtures",
+                "output": "grg2-fixtures"
+              }
             ],
             "styles": [
               "src/styles.scss"
