@@ -97,7 +97,3 @@ Port the C# GRG2 parser and GABC exporter to TypeScript as Angular services:
   - **Priority**: conversion logic (GRG2 parser + GABC exporter) tested with real `.grg` fixture files (fixtures TBD — add when sample files are available).
   - **Selective**: UI component tests for non-trivial logic only (e.g., feedback prompt probability).
 - Dependabot for npm and GitHub Actions dependencies.
-
-## Open Items
-
-- [ ] Obtain sample `.grg` files to use as unit test fixtures (ask original author for permission, or create synthetic minimal files).
