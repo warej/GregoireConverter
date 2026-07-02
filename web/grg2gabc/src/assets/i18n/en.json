@@ -12,7 +12,7 @@
     "viewerLink": "Open in GABC viewer",
     "outputLabel": "Conversion result (GABC)",
     "warningsTitle": "Warnings",
-    "warningsDescription": "The following neumes were not recognised and have been marked as (?) in the output:",
+    "warningsDescription": "The following neumes were not recognised and have been marked as _??? in the output:",
     "errorInvalidFile": "Invalid file. Please make sure the selected file is a Gregoire (.grg) file.",
     "errorFileTooLarge": "File is too large. Maximum size is 10 MB.",
     "errorUnexpected": "An unexpected error occurred during conversion."

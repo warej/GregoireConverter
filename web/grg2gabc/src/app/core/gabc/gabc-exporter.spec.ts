@@ -59,8 +59,15 @@ describe('GabcExporter', () => {
     const staff = staffOf(0, makeNeume(9999, 0, 72));
     const result = new GabcExporter().convert(grgWithStaff(staff), 'x');
 
-    expect(result.gabc).toContain('((?))');
+    expect(result.gabc).toContain('_???(A)');
     expect(result.warnings).toEqual([{ id: 9999, positionX: 0, positionY: 72, caption: '' }]);
+  });
+
+  it('appends the unmapped marker after existing syllable text', () => {
+    const staff = staffOf(0, makeNeume(9999, 0, 72, 'Ky'));
+    const result = new GabcExporter().convert(grgWithStaff(staff), 'x');
+
+    expect(result.gabc).toContain('Ky_???(A)');
   });
 
   it('separates two close neume glyphs within the same syllable', () => {

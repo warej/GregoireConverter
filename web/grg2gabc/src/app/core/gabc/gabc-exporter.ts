@@ -9,7 +9,8 @@ export interface ConversionResult {
   warnings: UnmappedNeume[];
 }
 
-const UNMAPPED_PLACEHOLDER = '(?)';
+const UNMAPPED_GLYPH = 'A';
+const UNMAPPED_TEXT_MARKER = '_???';
 
 export class GabcExporter {
   private warnings: UnmappedNeume[] = [];
@@ -88,7 +89,8 @@ export class GabcExporter {
         flush();
         textBuf += cur.caption.trim() ? cur.caption : ' ';
         const translated = this.translateNeume(cur);
-        neumeBuf = translated;
+        if (translated.unmapped) textBuf += UNMAPPED_TEXT_MARKER;
+        neumeBuf = translated.glyph;
         if (neumeBuf.trim()) flush();
         textBuf += ' ';
         continue;
@@ -111,7 +113,8 @@ export class GabcExporter {
       }
 
       const translated = this.translateNeume(cur);
-      if (translated) neumeBuf += (separator ?? '') + translated;
+      if (translated.unmapped) textBuf += UNMAPPED_TEXT_MARKER;
+      if (translated.glyph) neumeBuf += (separator ?? '') + translated.glyph;
     }
 
     flush();
@@ -119,16 +122,16 @@ export class GabcExporter {
     return result;
   }
 
-  private translateNeume(neume: Grg2NeumeForGabc): string {
+  private translateNeume(neume: Grg2NeumeForGabc): { glyph: string; unmapped: boolean } {
     if (!neume.format) {
       this.warnings.push({ id: neume.id, positionX: neume.positionX, positionY: neume.positionY, caption: neume.caption });
-      return UNMAPPED_PLACEHOLDER;
+      return { glyph: UNMAPPED_GLYPH, unmapped: true };
     }
     try {
-      return neume.translateNeume();
+      return { glyph: neume.translateNeume(), unmapped: false };
     } catch {
       this.warnings.push({ id: neume.id, positionX: neume.positionX, positionY: neume.positionY, caption: neume.caption });
-      return UNMAPPED_PLACEHOLDER;
+      return { glyph: UNMAPPED_GLYPH, unmapped: true };
     }
   }
 

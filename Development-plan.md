@@ -19,7 +19,7 @@ MIT
 - Upload a `.grg` file (max 10 MB).
 - Validate file signature (`GRG2` magic bytes at offset 0, minimum size 40 bytes); show error if invalid.
 - Convert client-side to GABC (TypeScript port of the C# logic).
-- Display output GABC text with inline `(?)` placeholder markers where neume IDs have no mapping.
+- Display output GABC text with inline `_???` text markers and an `A` fallback glyph where neume IDs have no mapping (e.g. `Ky_???(A)`), keeping the output syntactically valid GABC.
 - Show a sidebar warnings panel listing every unmapped neume ID and its position in the score.
 - Offer download of the `.gabc` output.
 - Link to external GABC viewer (configurable via `environment.ts`, default: https://www.sourceandsummit.com/editor/alpha/).
@@ -60,7 +60,7 @@ Port the C# GRG2 parser and GABC exporter to TypeScript as Angular services:
 
 - Binary parsing uses `DataView` / `Uint8Array` (equivalent to C# `StreamHelper` + `BinaryReader`).
 - Segment types: `DOCUMENT` (0xf1ff), `STAFF` (0xf2ff), `INITIAL` (0xf3ff), `NEUME` (0xf4ff).
-- Neume-to-GABC mapping from `GRG2NeumeForGabc.cs` — approximately half is a lookup dictionary, half conditional logic. Some neume IDs are currently unmapped (commented out in the C# source); these produce inline `(?)` markers and sidebar warnings in the web UI.
+- Neume-to-GABC mapping from `GRG2NeumeForGabc.cs` — approximately half is a lookup dictionary, half conditional logic. Some neume IDs are currently unmapped (commented out in the C# source); these produce inline `_???` text markers plus an `A` fallback glyph, and sidebar warnings, in the web UI.
 - Reference implementation: `original_app/`.
 
 ## UX & Localization
@@ -73,7 +73,7 @@ Port the C# GRG2 parser and GABC exporter to TypeScript as Angular services:
 ## Validation & Errors
 
 - Check `GRG2` magic bytes and minimum file size (40 bytes); show error if invalid.
-- Unmapped neume IDs: insert inline `(?)` placeholder in GABC output and list in sidebar warnings panel. Conversion continues.
+- Unmapped neume IDs: append an inline `_???` marker to the syllable text and emit a fallback `A` glyph (a valid GABC pitch letter, so the output stays syntactically valid) in the GABC output; also list in sidebar warnings panel. Conversion continues.
 - Contact email for error reports configurable via Angular environment file (`environment.ts`); initially `artur.warejko@a4w.pl`.
 - External GABC viewer URL configurable via `environment.ts`; initially `https://www.sourceandsummit.com/editor/alpha/`.
 
@@ -101,4 +101,3 @@ Port the C# GRG2 parser and GABC exporter to TypeScript as Angular services:
 ## Open Items
 
 - [ ] Obtain sample `.grg` files to use as unit test fixtures (ask original author for permission, or create synthetic minimal files).
-- [ ] Update `LICENSE` file content to MIT.
