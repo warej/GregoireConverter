@@ -7,7 +7,7 @@ Node.js 24+ (LTS), `make`
 ## Workflow
 
 1. Fork and clone the repository.
-2. Run `make install` inside the repo root.
+2. Run `make install` inside the repo root (`--ignore-scripts` is applied automatically).
 3. Make changes under `web/grg2gabc/src/`.
 4. Run `make lint` and `make test` — both must pass.
 5. Open a pull request against `main`.

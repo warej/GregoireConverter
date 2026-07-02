@@ -9,7 +9,7 @@ help:
 
 .PHONY: install
 install:
-	cd $(APP_DIR) && npm install
+	cd $(APP_DIR) && npm install --ignore-scripts
 
 .PHONY: build
 build:
